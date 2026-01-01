@@ -1,6 +1,6 @@
 # 自注意力机制
 
-![img.png](img.png)[](D:\xwechat_files\wxid_wtzyueqmeap22_98f6\temp\RWTemp\2025-12\3ed66e3d6c5a70175884132c43a465b8.jpg)
+![img.png](photo/img.png)[](D:\xwechat_files\wxid_wtzyueqmeap22_98f6\temp\RWTemp\2025-12\3ed66e3d6c5a70175884132c43a465b8.jpg)
 
 #### 1. 单个 Query 的注意力分数
 
@@ -19,7 +19,7 @@ $A=K^T⋅Q$
 
 **A**′=Softmax(**A**)
 
-![img_1.png](img_1.png)![](D:\xwechat_files\wxid_wtzyueqmeap22_98f6\temp\RWTemp\2025-12\cbd388ae1cebd40b642aa3dee4a9060e.jpg)
+![img_1.png](photo/img_1.png)![](D:\xwechat_files\wxid_wtzyueqmeap22_98f6\temp\RWTemp\2025-12\cbd388ae1cebd40b642aa3dee4a9060e.jpg)
 
 #### 4. 自注意力输出
 
@@ -27,7 +27,7 @@ $A=K^T⋅Q$
 
 Output=**A**′⋅**V**
 
-![img_3.png](img_3.png)
+![img_3.png](photo/img_3.png)
 
 | 符号         | 英文全称     | 中文名称     | 核心含义                              | 对应向量 / 矩阵公式                                  |
 | ------------ | ------------ | ------------ | ------------------------------------- | ---------------------------------------------------- |
@@ -42,7 +42,7 @@ Output=**A**′⋅**V**
 
 普通自注意力是 “单头”，只能学习一种信息关联；**多头注意力**是把 Q/K/V 拆分成多个 “子向量”（对应多个 “注意力头”），每个头独立计算注意力，最后合并结果，从而捕捉更丰富的关联。
 
-![img_4.png](img_4.png)
+![img_4.png](photo/img_4.png)
 
 每个头的子维度： $d_k=\frac{d_{model}}{h}$
 
@@ -55,7 +55,7 @@ $q^{i,1}=q^i\cdot W^{q,1}$
 
 其他的以此类推，不过 $q^{i,1}$只能与 $k^{i,1}和{k^{j,1}}$相乘不能与 $k^{j,2}$相乘，其他同理。
 
-![img_5.png](img_5.png)![](D:\xwechat_files\wxid_wtzyueqmeap22_98f6\temp\RWTemp\2025-12\60f40ca0f1ff31628641d3605c7c51bc.jpg)
+![img_5.png](photo/img_5.png)![](D:\xwechat_files\wxid_wtzyueqmeap22_98f6\temp\RWTemp\2025-12\60f40ca0f1ff31628641d3605c7c51bc.jpg)
 
 将多个注意力头得到的结果进行拼接，经过 $W^O$矩阵进行变换得到最终的输出
 
