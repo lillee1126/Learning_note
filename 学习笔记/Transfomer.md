@@ -13,14 +13,13 @@ $a_{1,i}=k^i*q^1$    (i=1,2,3,4)
 设所有 Query 组成矩阵*Q*=[*q*1,*q*2,*q*3,*q*4]，所有 Key 组成矩阵*K*=[*k*1,*k*2,*k*3,*k*4]，则注意力矩阵*A*为$K^T$*与*Q的点积：
 
 $A=K^T⋅Q$
-
 #### 3. 归一化注意力权重矩阵（**A**′）
 
 对 **A** 的每一行执行 Softmax 操作，得到归一化后的注意力权重：
 
 **A**′=Softmax(**A**)
 
-![cbd388ae1cebd40b642aa3dee4a9060e](D:\xwechat_files\wxid_wtzyueqmeap22_98f6\temp\RWTemp\2025-12\cbd388ae1cebd40b642aa3dee4a9060e.jpg)
+![img_1.png](img_1.png)![](D:\xwechat_files\wxid_wtzyueqmeap22_98f6\temp\RWTemp\2025-12\cbd388ae1cebd40b642aa3dee4a9060e.jpg)
 
 #### 4. 自注意力输出
 
@@ -28,7 +27,7 @@ $A=K^T⋅Q$
 
 Output=**A**′⋅**V**
 
-![befe0a437c0bdd3f5b3da6b37a5aa2d9](D:\xwechat_files\wxid_wtzyueqmeap22_98f6\temp\RWTemp\2025-12\befe0a437c0bdd3f5b3da6b37a5aa2d9.jpg)
+![img_3.png](img_3.png)
 
 | 符号         | 英文全称     | 中文名称     | 核心含义                              | 对应向量 / 矩阵公式                                  |
 | ------------ | ------------ | ------------ | ------------------------------------- | ---------------------------------------------------- |
@@ -43,7 +42,7 @@ Output=**A**′⋅**V**
 
 普通自注意力是 “单头”，只能学习一种信息关联；**多头注意力**是把 Q/K/V 拆分成多个 “子向量”（对应多个 “注意力头”），每个头独立计算注意力，最后合并结果，从而捕捉更丰富的关联。
 
-![67f441092d5bb17323d87277c63a9b1a](D:\xwechat_files\wxid_wtzyueqmeap22_98f6\temp\RWTemp\2025-12\67f441092d5bb17323d87277c63a9b1a.jpg)
+![img_4.png](img_4.png)
 
 每个头的子维度：$d_k=\frac{d_{model}}{h}$
 
@@ -56,7 +55,7 @@ $q^{i,1}=q^i\cdot W^{q,1}$
 
 其他的以此类推，不过$q^{i,1}$只能与$k^{i,1}和{k^{j,1}}$相乘不能与$k^{j,2}$相乘，其他同理。
 
-![60f40ca0f1ff31628641d3605c7c51bc](D:\xwechat_files\wxid_wtzyueqmeap22_98f6\temp\RWTemp\2025-12\60f40ca0f1ff31628641d3605c7c51bc.jpg)
+![img_5.png](img_5.png)![](D:\xwechat_files\wxid_wtzyueqmeap22_98f6\temp\RWTemp\2025-12\60f40ca0f1ff31628641d3605c7c51bc.jpg)
 
 将多个注意力头得到的结果进行拼接，经过$W^O$矩阵进行变换得到最终的输出
 
@@ -93,3 +92,6 @@ $b_1=A\cdot v$=1*2
 经过$W^{O}$变换最终是1*4
 
 需要学习的参数个数为$h \times 3 *d_{model}*d_k+(h\times d_k)\times d_{model}=4\times d_{model}^2$                  
+
+
+
